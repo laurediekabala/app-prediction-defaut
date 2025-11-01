@@ -1,0 +1,35 @@
+.stSelectbox,.stMultiSelect{
+    background-color: #329737 !important;
+    color: 1px #313a86 !important;
+    border-radius: 5px; 
+    text-align: right;  
+}
+.stAPP {
+    text-align: right;
+    background-color:red;
+    
+}
+.stMultiSelect label,.stSelectbox label {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color : #81292960 !important;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 10px;
+}
+[data-testid="stSidebar"]{
+    background-color:#0E1127; 
+     border-radius: 20px;
+    padding: 5px;
+    color:red;
+    top: 30px;
+    
+}
+.css-1v0mbdj {
+    background-color: #313a86;
+    border-radius: 20px;
+    padding: 10px;
+    color:#ffffff;
+}

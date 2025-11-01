@@ -1,0 +1,38 @@
+.stApp {transition: all 0.3s ease;
+      text-align: center;
+}
+[data-testid="stSidebar"]{
+    border-radius: 20px;
+    padding: 5px;
+    color:red;
+    top: 30px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.stButton > button {
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: rgba(0, 17, 255, 0.041);
+    transition: all 0.3s ease;
+}
+.option_menu {
+    background-color:#424420!important;
+  
+}
+div[data-testid="stMetric"]{
+    border: 2px solid #424420;
+    padding: 15px;
+    width: 300 px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    margin:10px;
+}
+div[data-testid="stMetricLabel"]{
+    font-size: 20px;
+}
+div[data-testid="stMetricValue"]{
+    font-size: 36px;
+    font-weight: bold;
+    color: #007acc;
+}

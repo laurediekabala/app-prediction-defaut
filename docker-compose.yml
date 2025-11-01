@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  flask-api:
+    build: 
+      context: ./prediction
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+
+  streamlit-app:
+    build:
+      context: ./appstreamlit
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - FLASK_HOST=http://flask-api
+      - FLASK_PORT=5000
+    depends_on:
+      - flask-api
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
