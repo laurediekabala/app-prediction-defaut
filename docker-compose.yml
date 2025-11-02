@@ -12,7 +12,7 @@ services:
 
   streamlit-app:
     build:
-      context: ./prediction
+      context: ./appstreamlit
       dockerfile: Dockerfile
     ports:
       - "8501:8501"
