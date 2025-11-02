@@ -31,10 +31,7 @@ logs/
 # =====================
 # Données (datasets)
 # =====================
-dataset/
 data/
-*.csv
-*.xlsx
 *.parquet
 *.json
 

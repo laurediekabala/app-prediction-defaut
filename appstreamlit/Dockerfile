@@ -1,18 +1,35 @@
-# Utiliser Python 3.11.5 officiel
-FROM python:3.11.5-slim
+# Image de base Python 3.11
+FROM python:3.11-slim
 
 # Définir le répertoire de travail
-WORKDIR /appstreamlit
+WORKDIR /app
 
-# Copier les fichiers requirements.txt et installer les dépendances
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Copier l'application Streamlit
+COPY ./streamlit /app/streamlit
 
-# Copier tout le code de l'application
-COPY . .
+# Copier les autres dossiers nécessaires
+COPY ./config /app/config
+COPY ./assets /app/assets
+COPY ./connection /app/connection
+COPY ./dataset /app/dataset
+COPY ./assets /app/assets
+COPY ./traitement /app/traitement
+COPY ./utils /app/utils
+COPY ./xboost.joblib /app/xboost.joblib
+
+# Copier les fichiers de base de données
+COPY ./user.db /app/user.db
+COPY ./users.db /app/users.db
+
+# Définir le répertoire de travail sur l’app Streamlit
+WORKDIR /app/streamlit
+
+# Installer les dépendances
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 # Exposer le port Streamlit
 EXPOSE 8501
 
-# Lancer l'application Streamlit
+# Lancer Streamlit
 CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
