@@ -5,7 +5,7 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copier l'application Streamlit
-COPY ./streamlit /app/streamlit
+COPY ./appstreamlit /app/appstreamlit
 
 # Copier les autres dossiers nécessaires
 COPY ./config /app/config
