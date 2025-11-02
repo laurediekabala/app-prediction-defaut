@@ -12,13 +12,10 @@ services:
 
   streamlit-app:
     build:
-      context: ./app
+      context: ./prediction
       dockerfile: Dockerfile
     ports:
       - "8501:8501"
-    environment:
-      - FLASK_HOST=http://flask-api
-      - FLASK_PORT=5000
     depends_on:
       - flask-api
     networks:
