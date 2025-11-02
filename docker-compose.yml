@@ -13,7 +13,7 @@ services:
   streamlit-app:
     build:
       context: .
-      dockerfile:  ./streamlit/Dockerfile
+      dockerfile:  ./appstreamlit/Dockerfile
     ports:
       - "8501:8501"
     depends_on:
