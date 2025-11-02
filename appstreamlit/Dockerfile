@@ -20,10 +20,6 @@ COPY ./xboost.joblib /app/xboost.joblib
 # Copier les fichiers de base de données
 COPY ./user.db /app/user.db
 COPY ./users.db /app/users.db
-
-# Définir le répertoire de travail sur l’app Streamlit
-WORKDIR /app/streamlit
-
 # Installer les dépendances
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
