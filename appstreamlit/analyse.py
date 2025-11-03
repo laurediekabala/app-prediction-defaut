@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),'..')))
 import streamlit as st
 import plotly.express as pl
 from scipy.stats import chi2_contingency,kruskal,iqr
-from appstreamlit.home import dataset
+from home import dataset
 import numpy as np
 from utils.theme import plotly_templete
 #@st.cache_data

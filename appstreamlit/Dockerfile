@@ -10,6 +10,8 @@ WORKDIR /app
 
 # Copier le contenu du dossier Streamlit
 COPY . /app
+# ✅ Ajouter appstreamlit au PYTHONPATH pour que les imports internes fonctionnent
+ENV PYTHONPATH="${PYTHONPATH}:/app"
 
 # Installer les dépendances
 RUN pip install --upgrade pip
@@ -19,4 +21,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8501
 
 # Lancer l'application
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run","appstreamlit/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
