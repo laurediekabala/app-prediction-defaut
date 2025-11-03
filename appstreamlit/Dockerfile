@@ -14,7 +14,6 @@ COPY . /app
 ENV PYTHONPATH="${PYTHONPATH}:/app"
 
 # Installer les dépendances
-RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Exposer le port Streamlit
