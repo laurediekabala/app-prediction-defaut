@@ -1,31 +1,22 @@
-# Image de base Python 3.11
+# =========================
+# Dockerfile Streamlit App
+# =========================
+
+# Image de base
 FROM python:3.11-slim
 
 # Définir le répertoire de travail
 WORKDIR /app
 
-# Copier l'application Streamlit
-COPY ./appstreamlit /app/appstreamlit
+# Copier le contenu du dossier Streamlit
+COPY . /app
 
-# Copier les autres dossiers nécessaires
-COPY ./config /app/config
-COPY ./assets /app/assets
-COPY ./connection /app/connection
-COPY ./dataset /app/dataset
-COPY ./assets /app/assets
-COPY ./traitement /app/traitement
-COPY ./utils /app/utils
-COPY ./xboost.joblib /app/xboost.joblib
-
-# Copier les fichiers de base de données
-COPY ./user.db /app/user.db
-COPY ./users.db /app/users.db
 # Installer les dépendances
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Exposer le port Streamlit
 EXPOSE 8501
 
-# Lancer Streamlit
+# Lancer l'application
 CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
