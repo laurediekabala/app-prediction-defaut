@@ -37,7 +37,9 @@ def predit() :
       prediction= int(proba>=0.45)
       return jsonify({"prediction":prediction,"probabilite":proba})
     except Exception as e :
-            print(f"erreur inattendue :{e}")  
+            print(f"erreur inattendue :{e}") 
+            app.logger.exception("Erreur lors de la prédiction")
+            return jsonify({"error": str(e)}), 500 
 if __name__ =="__main__" :
        app.run(host="0.0.0.0", debug=True, port=5000)
 

@@ -2,12 +2,14 @@ import streamlit as st
 from traitement import donnees
 import pandas as pd
 import numpy as np
+import os
 
 @st.cache_data
 def dataset():
     try:
         analyse_obj = donnees.analyse()
-        data = analyse_obj.dataset(r'appstreamlit\dataset\default.xlsx')
+        path = os.path.join("appstreamlit", "dataset", "default.xlsx")
+        data = analyse_obj.dataset(path)
         if data is None:
             st.warning("Le dataset n'a pas pu être chargé.", icon="🚨")
             return None

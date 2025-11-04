@@ -14,7 +14,11 @@ def table_bar(data,column,filtre) :
     return data
 def run() :
     st.title("analyse")
-    data,feature=dataset()
+    result = dataset()
+    if result is None:
+        st.error("Impossible de charger le dataset.")
+        st.stop()
+    data, feature = result
     with st.sidebar :
         st.subheader("filtrage")
         radio =st.radio('annalyse',["exploratoire","avancee"])
