@@ -7,7 +7,7 @@ import numpy as np
 def dataset():
     try:
         analyse_obj = donnees.analyse()
-        data = analyse_obj.dataset(r'D:\application_default\dataset\default.xlsx')
+        data = analyse_obj.dataset(r'appstreamlit\dataset\default.xlsx')
         if data is None:
             st.warning("Le dataset n'a pas pu être chargé.", icon="🚨")
             return None

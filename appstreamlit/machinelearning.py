@@ -24,8 +24,8 @@ def recuperation(url:str) -> str:
               st.stop() 
 @st.cache_data
 def drift() :
-     data_ancien =pd.read_csv(r"dataset/train.csv")
-     data_nouveau =pd.read_csv(r"dataset/test.csv")
+     data_ancien =pd.read_csv(r"appstreamlit\dataset\test.csv")
+     data_nouveau =pd.read_csv(r"appstreamlit\dataset\train.csv")
      return data_ancien,data_nouveau                 
 @st.cache_data
 def dataframe(list) :
