@@ -45,8 +45,10 @@ def get_color() :
 
 def laod_css() :
      # appliquer du css 
-     with open("assets\custom.css") as f :
-              st.markdown(f"<style>{f.read()}</style>",unsafe_allow_html=True) 
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    css_path = os.path.join(base_dir, "..", "assets", "custom.css")
+    with open(css_path, "r", encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
      
 def apply_theme() :
     # application du theme sur l app
