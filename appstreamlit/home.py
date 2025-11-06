@@ -8,7 +8,7 @@ import os
 def dataset():
     try:
         analyse_obj = donnees.analyse()
-        path = os.path.join("appstreamlit", "dataset", "default.xlsx")
+        path = os.path.join("dataset", "default.xlsx")
         data = analyse_obj.dataset(path)
         if data is None:
             st.warning("Le dataset n'a pas pu être chargé.", icon="🚨")
