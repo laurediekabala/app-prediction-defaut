@@ -12,8 +12,8 @@ WORKDIR /app
 COPY . /app
 # ✅ Ajouter appstreamlit au PYTHONPATH pour que les imports internes fonctionnent
 # Installer les dépendances
-RUN pip install --no-cache-dir -r requirements.txt
-
+RUN pip install --upgrade pip
+RUN pip install --default-timeout=1000 --no-cache-dir -r requirements.txt
 # Exposer le port Streamlit
 EXPOSE 8501
 
