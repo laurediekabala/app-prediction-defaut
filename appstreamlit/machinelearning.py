@@ -27,7 +27,7 @@ def recuperation(url: str) -> str:
         st.stop()
 def drift():
     base = os.path.join(os.getcwd(), "dataset")  # si tu utilises volume, c'est /app/dataset
-    path_old = os.path.join(base, "test.csv")
+    path_old = os.path.join(base, "test.csv") 
     path_new = os.path.join(base, "train.csv")
     if not os.path.exists(path_old) or not os.path.exists(path_new):
         st.error(f"Fichiers drift introuvables: {path_old} ou {path_new}")
