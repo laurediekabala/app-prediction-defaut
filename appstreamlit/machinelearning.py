@@ -165,4 +165,4 @@ def run() :
         report.run(reference_data=ancien,current_data=nouveau)
         report_html=report.get_html()
         st.components.v1.html(report_html,height=900,scrolling=True)
-        
+         
