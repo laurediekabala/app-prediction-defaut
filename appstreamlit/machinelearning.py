@@ -134,10 +134,10 @@ def run() :
                 with st.spinner('attend un peu') :
                   time.sleep(0.5)
                   try :
-                    url= "http://localhost:5000"
+                    url= "https://app-prediction-defaut.onrender.com"
                     model_path=recuperation(f"{url}/model")
                     pipeline=job.load(model_path)
-                    reponse=requests.post(f"{url}/predict",json=df.to_dict(),timeout=10)
+                    reponse=requests.post(f"{url}/predict",json=df.to_dict(),timeout=30)
                     try :  
                            reponse.raise_for_status()
                     except :
