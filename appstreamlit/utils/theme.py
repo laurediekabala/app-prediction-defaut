@@ -7,7 +7,7 @@ import  plotly.graph_objects as go
 themes={
     "light":{
         "primary" :"#000000",
-        "secondary":"#F5F5F5",
+        "secondary":"#F5F5F5CA",
          "text" :"#000000",
          "select" :"#0000005E",
          "plotly":"plotly_white",},

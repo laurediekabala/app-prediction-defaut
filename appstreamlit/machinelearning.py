@@ -26,9 +26,9 @@ def recuperation(url: str) -> str:
         st.error(f"Impossible de se connecter à l'API Flask pour récupérer le model. Erreur : {e}")
         st.stop()
 def drift():
-    base = os.path.join(os.getcwd(), "dataset")  # si tu utilises volume, c'est /app/dataset
-    path_old = os.path.join(base, "test.csv") 
-    path_new = os.path.join(base, "train.csv")
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    path_old = os.path.join(BASE_DIR, "dataset", "test.csv")
+    path_new = os.path.join(BASE_DIR,"dataset", "train.csv")
     if not os.path.exists(path_old) or not os.path.exists(path_new):
         st.error(f"Fichiers drift introuvables: {path_old} ou {path_new}")
         st.stop()
@@ -134,7 +134,7 @@ def run() :
                 with st.spinner('attend un peu') :
                   time.sleep(0.5)
                   try :
-                    url = "http://flask-api:5000"
+                    url= "http://localhost:5000"
                     model_path=recuperation(f"{url}/model")
                     pipeline=job.load(model_path)
                     reponse=requests.post(f"{url}/predict",json=df.to_dict(),timeout=10)

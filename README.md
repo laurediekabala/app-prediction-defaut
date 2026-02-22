@@ -6,6 +6,7 @@ L'application est composée de deux composants principaux :
 - Une interface utilisateur web construite avec Streamlit pour visualiser et analyser les prédictions
 - Un service de prédiction basé sur Flask utilisant un modèle XGBoost pour évaluer les risques
 
+
 ## Structure du Projet
 
 ```

@@ -8,7 +8,8 @@ import os
 def dataset():
     try:
         analyse_obj = donnees.analyse()
-        path = os.path.join("dataset", "default.xlsx")
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(BASE_DIR, "dataset", "default.xlsx")
         data = analyse_obj.dataset(path)
         if data is None:
             st.warning("Le dataset n'a pas pu être chargé.", icon="🚨")
