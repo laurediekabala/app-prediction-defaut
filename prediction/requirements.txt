@@ -4,3 +4,4 @@ flask==2.2.5
 xgboost==3.0.5
 scikit-learn==1.7.1
 openpyxl
+gunicorn
