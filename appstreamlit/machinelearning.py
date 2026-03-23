@@ -44,9 +44,9 @@ def dataframe(row_dict):
 
     df = pd.DataFrame(row_dict, index=[0]) if isinstance(row_dict, dict) else pd.DataFrame(row_dict)
     # nettoyage minimal
-    df["EDUCATION"] = df["EDUCATION"].replace([0, 5, 6], 4)
+    df["EDUCATION"] = df["EDUCATION"].replace({"master": 1, "licence": 2, "secondaire": 3, "autres": 4})
     df["SEX"] = df["SEX"].replace(['F', 'H'], [0, 1])
-    df["MARRIAGE"] = df["MARRIAGE"].replace(0, 3)
+    df["MARRIAGE"] = df["MARRIAGE"].replace({"marié": 1, "célibataire": 2, "autres": 3})
 
     # calculs (vérifier que les colonnes existent)
     for c in col_amt + col_pay + bill_col:
@@ -97,20 +97,20 @@ def run() :
         with st.form(key="12")  :
             with col1 :
                 SEX =st.selectbox('selectionner le sex',["H","F"],key=1)
-                EDUCATION=st.selectbox('education',[0,1,2,3,4,5,6],key=2)
-                MARRIAGE =st.selectbox('etat civil',[0,1,2,3],key=3)
+                EDUCATION=st.selectbox('education',["master","licence","secondaire","autres"],key=2)
+                MARRIAGE =st.selectbox('etat civil',["marié","célibataire","autres"],key=3)
                 AGE= st.number_input("age",value=30,key=4)
                 LIMIT_BAL= st.number_input("montant limité",key=5)
                 BILL_AMT1 =st.number_input("facture pour avril",key=6)
                 BILL_AMT2 =st.number_input("facture pour mai",key=7)
                 BILL_AMT3=st.number_input("facture pour juin",key=8)
             with col2 :
-                PAY_1 =st.select_slider("situation d avril",[-2,-1,0,1,2,3],value=0,key=9)
-                PAY_2 =st.select_slider("situation de mai",[-2,-1,0,1,2,3],value=0,key=10)
-                PAY_3 =st.select_slider("situation de juin",[-2,-1,0,1,2,3],value=0,key=11)
-                PAY_4 =st.select_slider("situation de juillet",[-2,-1,0,1,2,3],value=0,key=12)
-                PAY_5 =st.select_slider("situation d aout",[-2,-1,0,1,2,3],value=0,key=13)
-                PAY_6 =st.select_slider("situation de sept",[-2,-1,0,1,2,3],value=0,key=14)
+                PAY_1 =st.select_slider("situation d avril",[-2,-1,0,1,2,3,4],value=0,key=9)
+                PAY_2 =st.select_slider("situation de mai",[-2,-1,0,1,2,3,4],value=0,key=10)
+                PAY_3 =st.select_slider("situation de juin",[-2,-1,0,1,2,3,4],value=0,key=11)
+                PAY_4 =st.select_slider("situation de juillet",[-2,-1,0,1,2,3,4],value=0,key=12)
+                PAY_5 =st.select_slider("situation d aout",[-2,-1,0,1,2,3,4],value=0,key=13)
+                PAY_6 =st.select_slider("situation de sept",[-2,-1,0,1,2,3,4],value=0,key=14)
                 BILL_AMT6=st.number_input("facture pour sept",key=22)
             with col3 :
                 BILL_AMT5=st.number_input("facture pour juillet",key=15)

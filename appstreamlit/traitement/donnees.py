@@ -13,6 +13,10 @@ class analyse:
             self.df.rename({'PAY_0': 'PAY_1'}, inplace=True, axis=1)
             self.df.drop("ID", axis=1, inplace=True)
             self.df.drop_duplicates(inplace=True)
+            self.df["EDUCATION"] = self.df["EDUCATION"].replace([0, 5, 6], 4)
+            self.df["EDUCATION"] = self.df["EDUCATION"].replace({1: "Master", 2: "licence", 3: "secondaire", 4: "autres"})
+            self.df["MARRIAGE"] = self.df["MARRIAGE"].replace(0, 3)
+            self.df["MARRIAGE"] = self.df["MARRIAGE"].replace({1: "marié", 2: "célibataire", 3: "autres"})
             return self.df
         except Exception as e:
             print(f"Erreur lors du chargement du dataset : {e}")
