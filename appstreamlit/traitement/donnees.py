@@ -13,12 +13,12 @@ class analyse:
             self.df.rename({'PAY_0': 'PAY_1'}, inplace=True, axis=1)
             self.df.drop("ID", axis=1, inplace=True)
             self.df.drop_duplicates(inplace=True)
+            # Correction SEX - Convertir en string d'abord
+            self.df["SEX"] = self.df["SEX"].replace({1: 'H', 2: 'F'})
             self.df["EDUCATION"] = self.df["EDUCATION"].replace([0, 5, 6], 4)
             self.df["EDUCATION"] = self.df["EDUCATION"].replace({1: "Master", 2: "licence", 3: "secondaire", 4: "autres"})
             self.df["MARRIAGE"] = self.df["MARRIAGE"].replace(0, 3)
             self.df["MARRIAGE"] = self.df["MARRIAGE"].replace({1: "marié", 2: "célibataire", 3: "autres"})
-            # Correction SEX - Convertir en string d'abord
-            self.df["SEX"] = self.df["SEX"].replace({1: 'H', 2: 'F'})
             # Correction target variable
             self.df["default payment next month"] = self.df["default payment next month"].replace({0: 'non', 1: 'oui'})
 
