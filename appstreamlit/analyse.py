@@ -37,7 +37,7 @@ def run() :
                 try :
                    tab=table_bar(data,column_objet,filtre)
                    if tab[column_objet].nunique()<=2:
-                       fig=pl.pie(tab,names=tab.index,values='count',title=column_objet)
+                       fig=pl.pie(tab,names=column_objet,values='count',title=column_objet)
                        st.plotly_chart(fig,use_container_width=True,theme=None)
                    else : 
                        fig=pl.bar(tab,x=column_objet,y='count',color=column_objet,title=column_objet)
