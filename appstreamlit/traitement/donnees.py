@@ -21,9 +21,6 @@ class analyse:
             self.df["MARRIAGE"] = self.df["MARRIAGE"].replace({1: "marié", 2: "célibataire", 3: "autres"})
             # Correction target variable
             self.df["default payment next month"] = self.df["default payment next month"].replace({0: 'non', 1: 'oui'})
-            for i in range(1, 7):
-                self.df[f'PAY_{i}'] = self.df[f'PAY_{i}'].astype(str)
-
             return self.df
         except Exception as e:
             print(f"Erreur lors du chargement du dataset : {e}")
