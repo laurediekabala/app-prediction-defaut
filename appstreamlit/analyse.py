@@ -23,7 +23,7 @@ def run() :
         st.subheader("filtrage")
         radio =st.radio('annalyse',["exploratoire","avancee"])
     if radio=='exploratoire' :
-        filtre=st.multiselect('filtrage par defaut de paiement',[col for col in data['default payment next month'].unique()],default=[0,1])
+        filtre=st.multiselect('filtrage par defaut de paiement',[col for col in data['default payment next month'].unique()],default=["oui","non"])
         data=data.loc[data['default payment next month'].isin(filtre)]
         col1,col2= st.columns([2,2]) 
         with st.sidebar :
