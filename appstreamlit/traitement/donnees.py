@@ -17,8 +17,14 @@ class analyse:
             self.df["EDUCATION"] = self.df["EDUCATION"].replace({1: "Master", 2: "licence", 3: "secondaire", 4: "autres"})
             self.df["MARRIAGE"] = self.df["MARRIAGE"].replace(0, 3)
             self.df["MARRIAGE"] = self.df["MARRIAGE"].replace({1: "marié", 2: "célibataire", 3: "autres"})
-            self.df["SEX"] = self.df["SEX"].replace({1:'H',2:'F'})
-            self.df["default payment next month"] = self.df["default payment next month"].replace({0: 'non', 1: 'oui'})
+             # Correction SEX - Convertir en string d'abord
+            self.df["SEX"] = self.df["SEX"].astype(str).str.strip()
+            self.df["SEX"] = self.df["SEX"].replace({'1': 'H', '2': 'F'})
+            
+            # Correction target variable
+            self.df["default payment next month"] = self.df["default payment next month"].astype(str).str.strip()
+            self.df["default payment next month"] = self.df["default payment next month"].replace({'0': 'non', '1': 'oui'})
+            
             return self.df
         except Exception as e:
             print(f"Erreur lors du chargement du dataset : {e}")
